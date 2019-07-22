@@ -45,10 +45,10 @@ test = np.delete(test,[2],1)
 test = np.append(arr = np.ones((100000,1)).astype(int),values = test,axis = 1)
 X = np.append(arr = np.ones((137,1)).astype(int),values = X,axis = 1)
 
-# Create your regressor here
-from sklearn.linear_model import LinearRegression
-regressor = LinearRegression()
-#fitting multiple linear Regression to training set
-regressor.fit(X,Y)
-#predicting the result
+#random forest
+from sklearn.ensemble import RandomForestRegressor
+regressor = RandomForestRegressor(n_estimators = 10000, random_state = 0)
+regressor.fit(X, Y)
+
+# Predicting a new result
 y_pred = regressor.predict(test)
